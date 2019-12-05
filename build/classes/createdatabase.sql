@@ -30,9 +30,9 @@ CREATE TABLE `admindb`.`SERVER` (
  PRIMARY KEY (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `admindb`.`SERVER` (`id`, `ipid`, `name`, `url`, `port`) VALUES ('1', '6', 'MASTER', 't.triggybet.com', '8080');
-INSERT INTO `admindb`.`SERVER` (`id`, `ipid`, `name`, `url`, `port`) VALUES ('2', '8', 'Sportsbet', 'sportsbet.triggybet.com', '9080');
-INSERT INTO `admindb`.`SERVER` (`id`, `ipid`, `name`, `url`, `port`) VALUES ('3', '10', 'LeoVegas', 'leovegas.triggybet.com', '9080');
-INSERT INTO `admindb`.`SERVER` (`id`, `ipid`, `name`, `url`, `port`) VALUES ('4', null, 'U', 'u.triggybet.com', null);
-INSERT INTO `admindb`.`SERVER` (`id`, `ipid`, `name`, `url`, `port`) VALUES ('5', null, 'Dev', 'triggy-dev.triggybet.com', '9080');
-INSERT INTO `admindb`.`SERVER` (`id`, `ipid`, `name`, `url`, `port`) VALUES ('6', null, 'UAT', 'triggy-uat.triggybet.com', '9080');
+INSERT INTO `admindb`.`SERVER` (`id`, `ipid`, `name`, `url`, `port`) VALUES ('1', '1', 'NAME', 'DBName', 'port');
+INSERT INTO `admindb`.`SERVER` (`id`, `ipid`, `name`, `url`, `port`) VALUES ('2', '2', 'Name', 'DBName', 'port');
+INSERT INTO `admindb`.`SERVER` (`id`, `ipid`, `name`, `url`, `port`) VALUES ('3', '3', 'NaMe', 'DBName', 'port');
+INSERT INTO `admindb`.`SERVER` (`id`, `ipid`, `name`, `url`, `port`) VALUES ('4', null, 'Name', 'DBName', null);
+INSERT INTO `admindb`.`SERVER` (`id`, `ipid`, `name`, `url`, `port`) VALUES ('5', null, 'Name', 'DBName', 'port');
+INSERT INTO `admindb`.`SERVER` (`id`, `ipid`, `name`, `url`, `port`) VALUES ('6', null, 'Name', 'DBName', 'port');
