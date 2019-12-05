@@ -1,4 +1,4 @@
-CREATE USER 'admindbuser'@'localhost' IDENTIFIED BY 'majskr0k';
+CREATE USER 'admindbuser'@'localhost' IDENTIFIED BY '1234';
 GRANT ALL PRIVILEGES ON *.* TO 'admindbuser'@'localhost' WITH GRANT OPTION;
 
 
