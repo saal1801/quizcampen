@@ -58,9 +58,11 @@ public class GUIQuestion extends JPanel implements ActionListener{
 		this.quiz=quiz;
 		setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 		correctAns=ans;
+		
 		//frågor
 		qPanel.add(new JLabel(q));
 		add(qPanel);
+		
 		//svar
 		responses=new JButton[options.length];
 		for(int i=0;i<options.length;i++){
