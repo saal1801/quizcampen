@@ -331,9 +331,3 @@ public class HTMLReader {
 	}
 }
 
-/*
- * Location:
- * /Users/danielsvenson/Downloads/temp/OddsServiceRest20170714.war!/WEB-INF/
- * classes/com/danester/utils/HTMLReader.class Java compiler version: 8 (52.0)
- * JD-Core Version: 0.7.1
- */
