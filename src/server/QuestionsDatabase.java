@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-//slnrslnglnsrdgösgr
+
 
 public class QuestionsDatabase {
 

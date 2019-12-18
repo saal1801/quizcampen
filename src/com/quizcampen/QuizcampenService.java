@@ -12,17 +12,17 @@ import org.apache.log4j.Logger;
 import com.quizcampen.entities.Quiz;
 import com.quizcampen.service.dao.DAOServiceLocal;
 
-public class QuizcampenSevice {
+public class QuizcampenService {
 	
-	public static final QuizcampenSevice INSTANCE = new QuizcampenSevice();
+	public static final QuizcampenService INSTANCE = new QuizcampenService();
 	
-	private static Logger _log = Logger.getLogger(QuizcampenSevice.class);
+	private static Logger _log = Logger.getLogger(QuizcampenService.class);
 	
 	public static List<Quiz> Quizcapmen = null;
 
 	private DAOServiceLocal daoService;
 	
-	QuizcampenSevice(){
+	QuizcampenService(){
 		initService();
 	}
 	

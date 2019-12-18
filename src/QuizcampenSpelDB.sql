@@ -1,38 +1,17 @@
-CREATE USER 'admindbuser'@'localhost' IDENTIFIED BY '1234';
-GRANT ALL PRIVILEGES ON *.* TO 'admindbuser'@'localhost' WITH GRANT OPTION;
+USE quizcampenSpelDB;
 
-
-CREATE SCHEMA `admindb`;
-
-
-CREATE TABLE `admindb`.`HIBERNATE_SEQUENCE` (
- next_val bigint(20) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-INSERT INTO `admindb`.`HIBERNATE_SEQUENCE` (`next_val`) VALUES (1);
-
-
-CREATE TABLE `admindb`.`ADMIN_USER` (
- id int(11) NOT NULL,
- lastlogin datetime DEFAULT NULL,
- password varchar(255) DEFAULT NULL,
- username varchar(255) DEFAULT NULL,
+DROP TABLE IF EXISTS `quizcampenSpelDB`.`QUIZCAPEN_QUES_ANS`;
+CREATE TABLE `quizcampenSpelDB`.`QUIZCAPEN_QUES_ANS` (
+ id int(11) NOT NULL AUTO_INCREMENT,
+ question varchar(255) DEFAULT NULL,
+ answer varchar(255) DEFAULT NULL,
  PRIMARY KEY (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
-CREATE TABLE `admindb`.`SERVER` (
- id int(11) NOT NULL,
- ipid int(11) DEFAULT NULL,
- name varchar(255) DEFAULT NULL,
- url varchar(255) DEFAULT NULL,
- port int(11) DEFAULT NULL,
- PRIMARY KEY (id)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-INSERT INTO `admindb`.`SERVER` (`id`, `ipid`, `name`, `url`, `port`) VALUES ('1', '1', 'NAME', 'DBName', 'port');
-INSERT INTO `admindb`.`SERVER` (`id`, `ipid`, `name`, `url`, `port`) VALUES ('2', '2', 'Name', 'DBName', 'port');
-INSERT INTO `admindb`.`SERVER` (`id`, `ipid`, `name`, `url`, `port`) VALUES ('3', '3', 'NaMe', 'DBName', 'port');
-INSERT INTO `admindb`.`SERVER` (`id`, `ipid`, `name`, `url`, `port`) VALUES ('4', null, 'Name', 'DBName', null);
-INSERT INTO `admindb`.`SERVER` (`id`, `ipid`, `name`, `url`, `port`) VALUES ('5', null, 'Name', 'DBName', 'port');
-INSERT INTO `admindb`.`SERVER` (`id`, `ipid`, `name`, `url`, `port`) VALUES ('6', null, 'Name', 'DBName', 'port');
+INSERT INTO `QUIZCAPEN_QUES_ANS` (`id`, `question`, `answer`) VALUES ('1', 'question1', 'answer1');
+INSERT INTO `QUIZCAPEN_QUES_ANS` (`id`, `question`, `answer`) VALUES ('2', 'question2', 'answer2');
+INSERT INTO `QUIZCAPEN_QUES_ANS` (`id`, `question`, `answer`) VALUES ('3', 'question3', 'answer3');
+INSERT INTO `QUIZCAPEN_QUES_ANS` (`id`, `question`, `answer`) VALUES ('4', 'question4', 'answer4');
+INSERT INTO `QUIZCAPEN_QUES_ANS` (`id`, `question`, `answer`) VALUES ('5', 'question5', 'answer5');
+INSERT INTO `QUIZCAPEN_QUES_ANS` (`id`, `question`, `answer`) VALUES ('6', 'question6', 'answer6');

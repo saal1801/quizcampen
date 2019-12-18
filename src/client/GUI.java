@@ -11,15 +11,14 @@ package client;
  */
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 import java.awt.CardLayout;
 import java.util.Random;
 //import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JOptionPane;
 
 public class GUI extends JFrame{
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	JPanel p=new JPanel();
 	CardLayout cards=new CardLayout();
@@ -137,8 +136,10 @@ public class GUI extends JFrame{
 		)
 	};
 
-	public static void main(String args[]){
-        GUI quiz = new GUI();
+	public static void main(String args[]) {
+       
+			GUI quiz = new GUI();	
+       
 	}
 	
 	public GUI(){

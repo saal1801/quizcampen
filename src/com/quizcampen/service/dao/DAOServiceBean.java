@@ -1,4 +1,4 @@
-/*package com.quizcampen.service.dao;
+package com.quizcampen.service.dao;
 
 import java.util.List;
 
@@ -35,7 +35,7 @@ public class DAOServiceBean implements DAOServiceLocal{
 	@Override
 	public QuizcampenQuestionDAO getQuiestionByRow(String question) {
 		
-		String sql = "SELECT * FROM QUIZCAPEN_QUES_ANS WHERE question='"+question+"'";
+		String sql = "SELECT * FROM quizcampenSpelDB.QUIZCAPEN_QUES_ANS WHERE question='"+question+"'";
 		
 		Query q = this.entityManager.createNativeQuery(sql, QuizcampenQuestionDAO.class);
 		
@@ -49,7 +49,7 @@ public class DAOServiceBean implements DAOServiceLocal{
 		}
 	}
 
-}*/
+}
 
 
 

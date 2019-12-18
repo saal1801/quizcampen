@@ -1,74 +1,10 @@
 <!DOCTYPE html>
-
-<html lang="en">
-
+<html>
 <head>
-
-	<meta charset="UTF-8">
-
-	<title>START - Admin page</title>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" ></script>
-
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
-
-<body onload="init()">
-
-	<div id="servers"></div>
-
-	<br>
-	
-	
-	<button onclick="showEvents()">Events</button>
-	
-
-	<script>
-	
-	 	function init(){
-	 		getServers();
-	 	}
-
-	 	function getServers(){
-			var url = "/Admin/rest/servers";
-			console.log("get servers from ",url);
-	 		$.get(url ,function(servers, status){
-
-				document.getElementById("servers").innerHTML=buildServersTable(servers);
-			});
- 		}
-	 	
-	 	function buildServersTable(serversdata){
- 			console.log("serversdata", serversdata);
- 		
- 	 		var table = "<table><tr><th>Server</th><th>Free disk</th><th>OddsServiceRest version</th></tr>";
-
-	 		var server = null;
-	 		for (var i = 0; i < serversdata.length; i++) {
-	 			server = serversdata[i];
- 			
-	   			table = table + "<td>" + server.url + "</td>";
-	   			table = table + "<td>" + "1.234 MB  " + "</td>";
-	 			table = table + "<td>" + "v1.0.0" + "</td>";
-	 			table = table + "<td><input type=\"button\" value=\"Delete logs\" onclick=\"deleteLogs()\"></td>";
-	 			table = table + "<td><input type=\"button\" value=\"Restart OddsServiceRest\" onclick=\"restart()\"></td>";
-
-		  		table = table + "</tr>";	
- 			}
- 		
- 			table = table + "</table>";
-
- 			return table;
-	 	}
-
-		function showEvents(){ 
-
-	 		var url = "/Admin/rest/showEvents";
-	 		var win = window.open(url, '_blank');
-	 		win.focus();
-	 	}
-
-
-	</script>
+<body>
+	<h1>hej from WebContent</h1>
 </body>
 </html>

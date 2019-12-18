@@ -14,6 +14,7 @@ public class QuizApplication extends Application {
 
 	public QuizApplication() {
 
+		
 		Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
 
 			public void run() {

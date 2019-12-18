@@ -1,5 +1,5 @@
 package com.quizcampen.utils;
-/*package com.triggy.utils;
+
 
 import java.lang.reflect.Type;
 
@@ -31,4 +31,4 @@ public class JsonConverter {
 
 	return gson.toJson(toConvert);
     }
-}*/
+}

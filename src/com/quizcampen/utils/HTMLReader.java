@@ -12,15 +12,19 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
+
+
+
 public class HTMLReader {
 
 //	public static final String LOGIN_PAGE = readFile("login.html");
 	public static final String START_PAGE = readFile("start.html");
-	public static final String EVENT_PAGE= readFile("events.html");
+	/*public static final String EVENT_PAGE= readFile("events.html");
 	public static final String EVENTUPDATE_PAGE= readFile("updateEvent.html");
 	public static final String HISTORIC_PAGE= readFile("historic.html");
 	public static final String TODAYEVENT_PAGE= readFile("todayevent.html");
-	public static final String FUTUREEVENTS_PAGE= readFile("futureevents.html");
+	public static final String FUTUREEVENTS_PAGE= readFile("futureevents.html");*/
+	public static final HTMLReader INSTANCE = new HTMLReader();
 	
 	
 
@@ -180,30 +184,30 @@ public class HTMLReader {
 
 	public static String removeSpecialChars(String playerStr) {
 		String result = new String(playerStr);
-		result = result.replace("Ã¶", "o");
-		result = result.replace("Ã–", "O");
-		result = result.replace("Ã˜", "O");
-		result = result.replace("Ã¸", "o");
+		result = result.replace("ö", "o");
+		result = result.replace("Ö", "O");
+		result = result.replace("Ø", "O");
+		result = result.replace("ø", "o");
 
-		result = result.replace("Ã¡", "a");
-		result = result.replace("Ã�", "A");
+		result = result.replace("á", "a");
+		result = result.replace("Á", "A");
 
-		result = result.replace("Ã ", "a");
-		result = result.replace("Ã€", "A");
+		result = result.replace("à", "a");
+		result = result.replace("À", "A");
 
-		result = result.replace("Ã¥", "a");
-		result = result.replace("Ã…", "A");
+		result = result.replace("å", "a");
+		result = result.replace("Å", "A");
 
-		result = result.replace("Ã¤", "a");
-		result = result.replace("Ã„", "A");
+		result = result.replace("ä", "a");
+		result = result.replace("Ä", "A");
 
-		result = result.replace("Ã©", "e");
-		result = result.replace("Ã‰", "E");
+		result = result.replace("é", "e");
+		result = result.replace("É", "E");
 
-		result = result.replace("Ã¨", "e");
-		result = result.replace("Ãˆ", "E");
+		result = result.replace("è", "e");
+		result = result.replace("È", "E");
 
-		result = result.replace("Ã‘", "N");
+		result = result.replace("Ñ", "N");
 		return result;
 	}
 
@@ -216,38 +220,38 @@ public class HTMLReader {
 		result = result.replaceAll("\n", "");
 		result = result.replaceAll("\r", "");
 		result = result.replaceAll("&nbsp;", " ");
-		result = result.replaceAll("&Ouml;", "Ã–");
-		result = result.replaceAll("&ouml;", "Ã¶");
+		result = result.replaceAll("&Ouml;", "Ö");
+		result = result.replaceAll("&ouml;", "ö");
 		result = result.replaceAll("&amp;", "&");
 
-		result = result.replaceAll("&euml;", "Ã«");
-		result = result.replaceAll("&eacute;", "Ã©");
-		result = result.replaceAll("&egrave;", "Ã¨");
-		result = result.replaceAll("&uuml;", "Ã¼");
-		result = result.replaceAll("&oslash;", "Ã¸");
-		result = result.replaceAll("&ccedil;", "Ã§");
-		result = result.replaceAll("&aelig;", "Ã¦");
-		result = result.replaceAll("&aring;", "Ã¥");
-		result = result.replaceAll("&auml;", "Ã¤");
-		result = result.replaceAll("&ouml;", "Ã¶");
-		result = result.replaceAll("&acirc;", "Ã¢");
-		result = result.replaceAll("&aacute;", "Ã¡");
-		result = result.replaceAll("&agrave;", "Ã ");
-		result = result.replaceAll("&szlig;", "ÃŸ");
+		result = result.replaceAll("&euml;", "ë");
+		result = result.replaceAll("&eacute;", "é");
+		result = result.replaceAll("&egrave;", "è");
+		result = result.replaceAll("&uuml;", "ü");
+		result = result.replaceAll("&oslash;", "ø");
+		result = result.replaceAll("&ccedil;", "ç");
+		result = result.replaceAll("&aelig;", "æ");
+		result = result.replaceAll("&aring;", "å");
+		result = result.replaceAll("&auml;", "ä");
+		result = result.replaceAll("&ouml;", "ö");
+		result = result.replaceAll("&acirc;", "â");
+		result = result.replaceAll("&aacute;", "á");
+		result = result.replaceAll("&agrave;", "à");
+		result = result.replaceAll("&szlig;", "ß");
 
-		result = result.replaceAll("&Euml;", "Ã‹");
-		result = result.replaceAll("&Eacute;", "Ã‰");
-		result = result.replaceAll("&Egrave;", "Ãˆ");
-		result = result.replaceAll("&Uuml;", "Ãœ");
-		result = result.replaceAll("&Oslash;", "Ã˜");
-		result = result.replaceAll("&Ccedil;", "Ã‡");
-		result = result.replaceAll("&AElig;", "Ã†");
-		result = result.replaceAll("&Aring;", "Ã…");
-		result = result.replaceAll("&Auml;", "Ã„");
-		result = result.replaceAll("&Ouml;", "Ã–");
-		result = result.replaceAll("&Acirc;", "Ã‚");
-		result = result.replaceAll("&Aacute;", "Ã�");
-		result = result.replaceAll("&Agrave;", "Ã€");
+		result = result.replaceAll("&Euml;", "Ë");
+		result = result.replaceAll("&Eacute;", "É");
+		result = result.replaceAll("&Egrave;", "È");
+		result = result.replaceAll("&Uuml;", "Ü");
+		result = result.replaceAll("&Oslash;", "Ø");
+		result = result.replaceAll("&Ccedil;", "Ç");
+		result = result.replaceAll("&AElig;", "Æ");
+		result = result.replaceAll("&Aring;", "Å");
+		result = result.replaceAll("&Auml;", "Ä");
+		result = result.replaceAll("&Ouml;", "Ö");
+		result = result.replaceAll("&Acirc;", "Â");
+		result = result.replaceAll("&Aacute;", "Á");
+		result = result.replaceAll("&Agrave;", "À");
 
 		result = result.trim();
 		return result;
@@ -330,4 +334,3 @@ public class HTMLReader {
 		return classes;
 	}
 }
-
