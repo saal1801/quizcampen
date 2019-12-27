@@ -1,11 +1,353 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 
-	<h1>Whoo Whoo</h1>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Quiz</title>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript"
+	src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript"
+	src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+<link
+	href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css"
+	rel="stylesheet" />
+
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+	
+<link rel="stylesheet" type="text/css"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker3.min.css">
+	
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	
+
+</head>
+</head>
+
+<style>
+div#test {
+            border: #000 1px solid;
+            padding: 10px 40px 40px 40px;
+        }
+  input[type='radio']:checked:before {
+    background:red;
+}
+
+input[type='radio'] {
+    -webkit-appearance:none;
+    width:20px;
+    height:20px;
+    border:1px solid darkgray;
+    border-radius:50%;
+    outline:none;
+    box-shadow:0 0 5px 0px gray inset;
+}
+input[type='radio']:hover {
+    box-shadow:0 0 5px 0px orange inset;
+}
+input[type='radio']:before {
+    content:'';
+    display:block;
+    width:60%;
+    height:60%;
+    margin: 20% auto;    
+    border-radius:50%;    
+}
+.green-background{
+  background-color: green;
+}
+.red-background{
+  background-color: red;
+}
+</style>
+
+
+ <body  onload="init()"> <!--onload="init()" -->
+
+	<h1>QuizKamp</h1>
+	
+	<h2 id="test_status"></h2>
+	<div id="test"></div>
+	
+	<div id="events"></div>
+
+	
+	<!-- <form id="check_privacy">
+  <table align="center" width="70%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td style="padding: 5px;">
+        <b>Question: </b>
+      </td>
+      <td style="padding: 5px;">
+        <input type="radio" id="message_pri" name="message_pri" value="1" /> answer
+        <input type="radio" id="message_pri" name="message_pri" value="2" /> answer1
+        <input type="radio" id="message_pri" name="message_pri" value="3" /> answer11
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 5px;">
+        <b>Question: </b>
+      </td>
+      <td style="padding: 5px;">
+        <input type="radio" id="follow_pri" name="follow_pri" value="1" /> answer
+        <input type="radio" id="follow_pri" name="follow_pri" value="2" /> answer1
+        <input type="radio" id="follow_pri" name="follow_pri" value="3" /> answer11
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 5px;">
+        <b>Question: </b>
+      </td>
+      <td style="padding: 5px;">
+        <input type="radio" id="post_pri" name="post_pri" value="1" /> answer
+        <input type="radio" id="post_pri" name="post_pri" value="2" /> answer1
+        <input type="radio" id="post_pri" name="post_pri" value="3" /> answer11
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="padding: 5px;">
+        <input type="hidden" id="check7" value="check_privacy" name="check7" />
+        <input class="small color blue button" type="submit" value="Check" />
+      </td>
+    </tr>
+  </table>
+  <div class="AnswerResult"></div>
+</form> -->
+
+
+
+
+
+	<script>
+	
+		function init(){
+			getEventsForIP();
+			
+		}
+
+		/*   $(document).on('change', '.radioButton', function(){
+			  var selected_answer = $(this).val();
+			  var question_id = $(this).attr('name');
+
+			  postData = 'ajaxrequest=submit_question&question_id='+question_id+'&selected_answer='+selected_answer;
+
+			  $.ajax
+			  ({
+			    url: '/Quizcampen/quiz/getQuiz',
+			    data: postData,
+			    type: 'GET',
+			    dataType: 'json',
+			    processData: false,
+ 			    contentType: 'application/json; charset=UTF-8',  //application/x-www-form-urlencoded
+			    cache : false,
+			    success: function(data) {
+			      console.log(data);
+			    
+			 }
+		   });
+			  return false;
+		}); */
+		  
+ 		  	var questions =[];
+// 		 	var ipid;
+		 	function getEventsForIP(ipid){
+		 		var url = "/Quizcampen/quiz/getQuiz";
+		 		  	$.get(url, function(ipEvents, status){
+		 		  		console.log("get getQuiz from ",url);
+		 		  		questions = questions.concat(ipEvents);
+// 		 		  		questions.sort(compareEvents);
+		 		  		document.getElementById("events").innerHTML=buildEventTable(questions);
+		 		  		
+		 		  	});
+		 		
+		 	}
+		 	
+		 	
+		 	function buildEventTable(eventsdata){
+	 			console.log("eventsdata", eventsdata);
+	 			
+	 		
+	 	 		var table = "<table border=1><tr><th>Questions</th><th>Answer</th><th>Answer</th><th>Answer</th><th>Correct</th></tr>";
+
+	 	 		var data = null;
+		 		for (var i = 0; i < eventsdata.length; i++) {
+	 				data = eventsdata[i];
+	 			
+		   			table = table + "<td>" + getQuestion(data) + "</td>";
+		   			// Events not started after starttime are marked with red background
+		   			table = table + "<td>" + getAnswer(data) + "</td>";
+		 			table = table + "<td>" + getAnswer1(data) + "</td>";
+		 			 // Ongoing events are marked with yellow background
+		 			table = table + "<td>" + getAnswer11(data) + "</td>";
+	 				table = table + "<td>" + getCorrectAns(data) + "</td>";
+	 				/*table = table + "<td>" + getSport(data) + "</td>";
+	 	 			table = table + "<td>" + getLeague(data) + "</td>";
+	 				table = table + "<td>" + getOperator(data) + "</td>";
+		   			// Events not matched with operator are marked with red background
+				 	// If master, add "update event" button" instead of matched status
+	 				table = table + "<td>" + getMatchedOrButton(data.matchedWithOperator, data.triggyoperatorid, data.triggyeventid) + "</td>"; */
+	 				
+			  		table = table + "</tr>";	
+	 			}
+	 		
+	 			table = table + "</table>";
+
+	 			return table;
+		 	}
+		 	function getQuestion(data){
+			 	if (data.question != null){
+					return data.question;
+				}
+			 	if (data.questionid != null){
+					return data.questionid;
+				}
+				
+				return "";
+		 	}
+
+		 	function getAnswer(data){
+			 	if (data.answer != null){
+					return data.answer;
+				}
+			 	if (data.answerid != null){
+					return data.answerid;
+				}
+				
+				return "";
+		 	}
+
+		 	function getAnswer1(data){
+			 	if (data.answer1 != null){
+					return data.answer1;
+				}
+			 	if (data.answer1id != null){
+					return data.answer1id;
+				}
+				
+				return "";
+		 	}
+		 	function getAnswer11(data){
+			 	if (data.answer11 != null){
+					return data.answer11;
+				}
+			 	if (data.answer11id != null){
+					return data.answer11id;
+				}
+				
+				return "";
+		 	}
+		 	function getCorrectAns(data){
+			 	if (data.correctAns != null){
+					return data.correctAns;
+				}
+			 	if (data.correctAnsid != null){
+					return data.correctAnsid;
+				}
+				
+				return "";
+		 	}
+		 	
+		 	/* var infoproviders =[];
+		 	function getInfoproviders(){
+		 		var url = "/Admin/rest/infoproviders";
+		 		console.log("get infoproviders from ",url);
+		 		$.get(url, function(ipRsp, status){
+		 			
+		 			infoproviders=ipRsp;
+			 		
+			 		renderCheckboxes(infoproviders);
+		 			
+			 		getEvents();
+		 		});
+		 		
+		 	} */
+		  
+		  
+		  var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
+		  
+		    /*  var questions = [
+		        ["Question?", "answer", "answer1", "answer11", "B"],
+		        ["Question?", "answer", "answer1", "answer11", "A"],
+		        ["Question?", "answer", "answer1", "answer11", "C"],
+		        ["Question?", "answer", "answer1", "answer114", "B"],
+		    ];  */
+
+		    
+		    function _(x) {
+		        return document.getElementById(x);
+		    }
+		    function renderQuestion() {
+		        test = _("test");
+		        if (pos >= questions.length) {
+		            test.innerHTML = "<h2>You got " + correct + " of " + questions.length + " questions correct</h2>";
+		            _("test_status").innerHTML = "Test Completed";
+		            pos = 0;
+		            correct = 0;
+		            return false;
+		        }
+		        _("test_status").innerHTML = "Question " + (pos + 1) + " of " + questions.length;
+		        question = questions[pos][0];
+		        chA = questions[pos][1];
+		        chB = questions[pos][2];
+		        chC = questions[pos][3];
+		        test.innerHTML = "<h3>" + question + "</h3>";
+		        test.innerHTML += "<input type='radio' class='choice' name='choices' value='A'id='choA'> <label for='choA'>" + chA + "</label><br>";
+		        test.innerHTML += "<input type='radio' class='choice' name='choices' value='B'id='choB'> <label for='choB'>" + chB + "</label><br>";
+		        test.innerHTML += "<input type='radio' class='choice' name='choices' value='C'id='choC'> <label for='choC'>" + chC + "</label><br>";
+		        test.innerHTML += "<button disabled='disabled' id='choiceSubmit'>Check Answer</button>";
+		    }
+
+		    function checkAnswer() {
+		        debugger;
+		        if ($("#test input:checked").val() == questions[pos][4]) {
+		            // correct question clicked
+		            
+		            console.log($("#test input:checked").val())
+		           $("#test input:checked+label").addClass('green-background')
+		            $("#test input:checked").addClass('green-background')
+		            correct++;
+		        }
+		        else {
+		            // wrong question clicked
+		            $("#test input:checked+label").addClass('red-background')
+		            $("#test input:checked").addClass('red-background')
+		        }
+		        setTimeout(function () {
+		            pos++;
+		            renderQuestion();
+		        }, 1000);
+		    }
+
+		    $("document").ready(function () {
+		        renderQuestion();
+		        var choiceClicked = false;
+		        $(document).on("click","#choiceSubmit",function(){
+		        	checkAnswer();
+		        })
+		        $(document).on("click","input[type=radio][name=choices]",function(){
+		        $("#choiceSubmit").removeAttr("disabled");
+		        })    
+		    });
+ 	
+ 	</script>
 </body>
 </html>

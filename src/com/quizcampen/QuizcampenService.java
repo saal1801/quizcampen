@@ -1,6 +1,7 @@
 package com.quizcampen;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -11,6 +12,8 @@ import org.apache.log4j.Logger;
 
 import com.quizcampen.entities.Quiz;
 import com.quizcampen.service.dao.DAOServiceLocal;
+import com.quizcampen.service.dao.entites.QuizcampenQuestionDAO;
+import com.quizcampen.service.dto.QuizcapmenDTO;
 
 public class QuizcampenService {
 	
@@ -18,7 +21,6 @@ public class QuizcampenService {
 	
 	private static Logger _log = Logger.getLogger(QuizcampenService.class);
 	
-	public static List<Quiz> Quizcapmen = null;
 
 	private DAOServiceLocal daoService;
 	
@@ -36,4 +38,31 @@ public class QuizcampenService {
 		    _log.error(e.getMessage());
 		}
 	    }
+
+	public List<Quiz> getQuizById() {
+				
+		
+		List<QuizcampenQuestionDAO> list = daoService.getQuiz();
+		
+		if (list==null) {
+			_log.warn("No quiz fount now");
+			return new ArrayList<Quiz>();
+		}
+		
+		List<Quiz> quizList = new ArrayList<>();
+		
+		
+		return quizList;
+	}
+
+//	public List<Quiz> getQuizById(int quesId) {
+//		QuizcapmenDTO quizDTO = daoService.getQuuestionById(quesId);
+//		
+//		if (quizDTO == null) {
+//			_log.warn("No Quiz found with id"+ quizDTO);
+//		}
+//		return new ArrayList<Quiz>();
+//	}
+	
+//	public static List<Quiz> quizcapmen = null;
 }

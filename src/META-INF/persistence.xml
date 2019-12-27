@@ -2,15 +2,26 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	
 	<persistence-unit name="QuizcampenSpelDB" transaction-type="JTA">
-        <jta-data-source>java:comp/DefaultDataSource</jta-data-source> <!--     QuizcampenDS -->
+        <jta-data-source>java:comp/DefaultDataSource</jta-data-source>   
+<!--         <jta-data-source>java:app/mySqlDS_Pool</jta-data-source> -->
         <properties>
         	<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
 			<property name="hibernate.show.sql" value="true"/>
-			<property name="hibernate.hbm2ddl.auto" value="update"/> 	
+			<property name="hibernate.hbm2ddl.auto" value="update"/> 
+ 			<property name="hibernate.connection.url" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;INIT=CREATE SCHEMA IF NOT EXISTS QUIZCAMPENSPELDB"/>
         </properties>
     </persistence-unit>
     
-
+<!-- <persistence-unit name="QuizcampenSpelDB" transaction-type="JTA"> -->
+<!--         <jta-data-source>java:/QuizDS</jta-data-source>     QuizcampenDS -->
+<!--         <properties> -->
+<!--         	<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/> -->
+<!-- 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/> -->
+<!-- 			<property name="hibernate.show.sql" value="true"/> -->
+<!-- 			<property name="hibernate.hbm2ddl.auto" value="update"/>  -->
+<!--  			<property name="hibernate.connection.url" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;INIT=CREATE SCHEMA IF NOT EXISTS QUIZCAMPENSPELDB"/> -->
+<!--         </properties> -->
+<!--     </persistence-unit> -->
     
 </persistence>

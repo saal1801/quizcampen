@@ -8,6 +8,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.apache.log4j.Logger;
+
+import com.quizcampen.entities.Quiz;
 import com.quizcampen.service.dao.entites.QuizcampenQuestionDAO;
 
 
@@ -15,6 +18,8 @@ import com.quizcampen.service.dao.entites.QuizcampenQuestionDAO;
 @Stateless(name = "DAOServiceEJB")
 @Local({ DAOServiceLocal.class })
 public class DAOServiceBean implements DAOServiceLocal{
+	
+	private static Logger _log = Logger.getLogger(DAOServiceBean.class);
 
 	@PersistenceContext(unitName = "QuizcampenSpelDB")
 	private EntityManager entityManager;
@@ -32,7 +37,7 @@ public class DAOServiceBean implements DAOServiceLocal{
 	}
 	
 
-	@Override
+	/*@Override
 	public QuizcampenQuestionDAO getQuiestionByRow(String question) {
 		
 		String sql = "SELECT * FROM quizcampenSpelDB.QUIZCAPEN_QUES_ANS WHERE question='"+question+"'";
@@ -47,7 +52,21 @@ public class DAOServiceBean implements DAOServiceLocal{
 		
 		return null;
 		}
-	}
+	}*/
+		@Override
+	 	public List<QuizcampenQuestionDAO> getQuiz() {
+
+		String sql = "SELECT * FROM quizcampenSpelDB order by id";
+
+		_log.info("getServers sql: " + sql);
+
+		Query q = this.entityManager.createNativeQuery(sql, QuizcampenQuestionDAO.class);
+
+		List <QuizcampenQuestionDAO> list = q.getResultList();
+
+		return list;
+	    }
+
 
 }
 

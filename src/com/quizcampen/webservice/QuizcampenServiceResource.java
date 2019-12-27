@@ -4,8 +4,11 @@ package com.quizcampen.webservice;
 import java.awt.HeadlessException;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.ws.rs.GET;
@@ -96,6 +99,56 @@ public class QuizcampenServiceResource {
 		return Response.ok(builder.toString()).build();
 	}
 	
+	
+	/*@GET
+	@Path("/getQuiz")
+	@Produces({ "application/json; charset=UTF-8" })
+//	@RolesAllowed("ADMIN")
+	public Response getQuizs(@QueryParam("id") String quizId) {
+
+		List <Quiz> quizs = QuizcampenService.INSTANCE.getQuizById();
+		
+//	    Quiz[] quiz = QuizcampenService.INSTANCE.getQuiz(question, answer);
+//	    Quiz quiz = new Quiz(quesId, question, answer);
+
+	    /*String json = JsonConverter.convertToJson(quiz);
+	    StringBuilder builder = new StringBuilder();
+	    builder.append(json);
+
+	    return Response.ok(builder.toString()).build();*/
+	
+//	    return Response.status(200).entity(quizs).build();
+//		return Response.status(200).entity(quizs.toString()).build();
+//	}
+	
+	@GET
+	@Path("/getQuiz")
+	@Produces({ "application/json; charset=UTF-8" })
+//	@RolesAllowed("ADMIN")
+	public Response getQuizs() {
+
+//		List <Quiz> quizs = QuizcampenService.INSTANCE.getQuizById();
+		List <Quiz> quizs = new ArrayList<>();
+
+		quizs.add(new Quiz(1,"Question","Answer","Answer1","Answer11","B"));
+		quizs.add(new Quiz(2,"Question","Answer","Answer1","Answer11","A"));
+		quizs.add(new Quiz(3,"Question","Answer","Answer1","Answer11","C"));
+		quizs.add(new Quiz(4,"Question","Answer","Answer1","Answer11","B"));
+//		quizs.add(new Quiz(5,"Question","Answer","Answer1","Answer11","A"));
+//		quizs.add(new Quiz(6,"Question","Answer","Answer1","Answer11","A"));
+		
+//	    Quiz[] quiz = QuizcampenService.INSTANCE.getQuiz(question, answer);
+//	    Quiz quiz = new Quiz(quesId, question, answer);
+
+	    /*String json = JsonConverter.convertToJson(quiz);
+	    StringBuilder builder = new StringBuilder();
+	    builder.append(json);
+
+	    return Response.ok(builder.toString()).build();*/
+	
+//	    return Response.status(200).entity(quizs).build();
+		return Response.status(200).entity(quizs).build();
+	}
 	
 
 }
