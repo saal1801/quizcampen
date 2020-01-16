@@ -19,6 +19,7 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.StreamingOutput;
 
+import org.apache.log4j.Logger;
 import org.jboss.resteasy.spi.UnhandledException;
 
 import com.quizcampen.QuizcampenService;
@@ -34,7 +35,7 @@ import io.swagger.annotations.ApiOperation;
 @Path("/quiz")
 public class QuizcampenServiceResource {
 	
-	
+	 private static final Logger _log = Logger.getLogger(QuizcampenServiceResource.class);
 	private final Map<String, Quiz> QuizDB = new HashMap<>();
 		@GET
 		@Path("/")
@@ -127,15 +128,27 @@ public class QuizcampenServiceResource {
 //	@RolesAllowed("ADMIN")
 	public Response getQuizs() {
 
-//		List <Quiz> quizs = QuizcampenService.INSTANCE.getQuizById();
-		List <Quiz> quizs = new ArrayList<>();
-
-		quizs.add(new Quiz(1,"Question","Answer","Answer1","Answer11","B"));
-		quizs.add(new Quiz(2,"Question","Answer","Answer1","Answer11","A"));
-		quizs.add(new Quiz(3,"Question","Answer","Answer1","Answer11","C"));
-		quizs.add(new Quiz(4,"Question","Answer","Answer1","Answer11","B"));
-//		quizs.add(new Quiz(5,"Question","Answer","Answer1","Answer11","A"));
-//		quizs.add(new Quiz(6,"Question","Answer","Answer1","Answer11","A"));
+		List <Quiz> quiz = QuizcampenService.INSTANCE.getQuizById();
+		 _log.info(quiz);
+		 
+		
+		/*
+		 * List <Quiz> quizs = new ArrayList<>(); _log.info("Quizs "+quizs);
+		 * 
+		 * quizs.add(new
+		 * Quiz(1,"Vilket språk talas i Brasilien?","Portugisiska","spanska",
+		 * "Italienska","Portugisiska")); quizs.add(new
+		 * Quiz(2,"Vilket är den största planet i solsystemet?","Jorden","Jupiter",
+		 * "Mars","Jupiter")); quizs.add(new
+		 * Quiz(3,"Vem uppfann Penicillin?","Thomas Edison","Louis Pasteur"
+		 * ,"Alexander Fleming","Alexander Fleming")); quizs.add(new
+		 * Quiz(4,"Anemofobi är rädslan för vad?","vind","mörker","mörker","vind"));
+		 * quizs.add(new
+		 * Quiz(5,"Vilket Apollo-uppdrag landade de första människorna på månen?"
+		 * ,"Apollo 7","Apollo 13","Apollo 11","Apollo 11")); quizs.add(new
+		 * Quiz(6,"Question","Answer","Answer1","Answer11","Answer1"));
+		 */
+		 
 		
 //	    Quiz[] quiz = QuizcampenService.INSTANCE.getQuiz(question, answer);
 //	    Quiz quiz = new Quiz(quesId, question, answer);
@@ -147,7 +160,7 @@ public class QuizcampenServiceResource {
 	    return Response.ok(builder.toString()).build();*/
 	
 //	    return Response.status(200).entity(quizs).build();
-		return Response.status(200).entity(quizs).build();
+		return Response.status(200).entity(quiz).build();
 	}
 	
 

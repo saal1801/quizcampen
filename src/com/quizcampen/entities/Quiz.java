@@ -1,5 +1,7 @@
 package com.quizcampen.entities;
 
+import com.quizcampen.service.dao.entites.QuizcampenQuestionDAO;
+
 public class Quiz {
 	
 	private int id;
@@ -9,6 +11,10 @@ public class Quiz {
 	private String answer11;
 	private String correctAns;
 	
+	
+	
+	
+	/*
 	public Quiz(int id, String question, String answer, String answer1, String answer11, String correctAns) {
 		super();
 		this.id = id;
@@ -18,6 +24,18 @@ public class Quiz {
 		this.answer11 = answer11;
 		this.correctAns = correctAns;
 	}
+	*/
+
+	public Quiz(QuizcampenQuestionDAO quizcampenQuestionDAO) {
+		super();
+		id = quizcampenQuestionDAO.getId();
+		question = quizcampenQuestionDAO.getQuestion();
+		answer = quizcampenQuestionDAO.getAnswer();
+		answer1 = quizcampenQuestionDAO.getAnswer1();
+		answer11 = quizcampenQuestionDAO.getAnswer11();
+		correctAns = quizcampenQuestionDAO.getCorrectAns();
+	}
+
 
 	public int getId() {
 		return id;
@@ -67,8 +85,5 @@ public class Quiz {
 		this.correctAns = correctAns;
 	}
 	
-	
-	
-		
 
 }

@@ -42,19 +42,27 @@ public class QuizcampenService {
 	public List<Quiz> getQuizById() {
 				
 		
-		List<QuizcampenQuestionDAO> list = daoService.getQuiz();
-		
-		if (list==null) {
-			_log.warn("No quiz fount now");
-			return new ArrayList<Quiz>();
-		}
-		
-		List<Quiz> quizList = new ArrayList<>();
+		List<QuizcampenQuestionDAO> list = this.daoService.getQuiz();
+		_log.info("List längt "+list.size());
 		
 		
-		return quizList;
-	}
+//		  if (list==null) { 
+//		  _log.warn("No quiz fount now " + list.size()); 
+//		  return new ArrayList<Quiz>(); 
+//		  }
+		  
+		  List<Quiz> quizList = new ArrayList<Quiz>();
+		  for(QuizcampenQuestionDAO quizcampenQuestionDAO : list) {
+			  quizList.add(new Quiz(quizcampenQuestionDAO));
+		  }
+		  
 
+		return quizList;
+//		return list;
+	}
+	
+	
+	
 //	public List<Quiz> getQuizById(int quesId) {
 //		QuizcapmenDTO quizDTO = daoService.getQuuestionById(quesId);
 //		
