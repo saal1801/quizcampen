@@ -15,9 +15,9 @@ CREATE TABLE `quizcampenSpelDB` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
-INSERT INTO `quizcampenSpelDB` (`id`, `question`, `answer`, `answer1`, `answer11`, `correctAns`) VALUES ('1', 'question1', 'answer', 'answer1', 'answer11', 'correctAns');
-INSERT INTO `quizcampenSpelDB` (`id`, `question`, `answer`, `answer1`, `answer11`, `correctAns`) VALUES ('2', 'question2', 'answer', 'answer1', 'answer11', 'correctAns');
-INSERT INTO `quizcampenSpelDB` (`id`, `question`, `answer`, `answer1`, `answer11`, `correctAns`) VALUES ('3', 'question3', 'answer', 'answer1', 'answer11', 'correctAns');
-INSERT INTO `quizcampenSpelDB` (`id`, `question`, `answer`, `answer1`, `answer11`, `correctAns`) VALUES ('4', 'question4', 'answer', 'answer1', 'answer11', 'correctAns');
-INSERT INTO `quizcampenSpelDB` (`id`, `question`, `answer`, `answer1`, `answer11`, `correctAns`) VALUES ('5', 'question5', 'answer', 'answer1', 'answer11', 'correctAns');
-INSERT INTO `quizcampenSpelDB` (`id`, `question`, `answer`, `answer1`, `answer11`, `correctAns`) VALUES ('6', 'question6', 'answer', 'answer1', 'answer11', 'correctAns');
+INSERT INTO `quizcampenSpelDB` (`id`, `question`, `answer`, `answer1`, `answer11`, `correctAns`) VALUES ('1', 'question1', 'answer', 'answer1', 'answer11', 'answer');
+INSERT INTO `quizcampenSpelDB` (`id`, `question`, `answer`, `answer1`, `answer11`, `correctAns`) VALUES ('2', 'question2', 'answer', 'answer1', 'answer11', 'answer1');
+INSERT INTO `quizcampenSpelDB` (`id`, `question`, `answer`, `answer1`, `answer11`, `correctAns`) VALUES ('3', 'question3', 'answer', 'answer1', 'answer11', 'answer11');
+INSERT INTO `quizcampenSpelDB` (`id`, `question`, `answer`, `answer1`, `answer11`, `correctAns`) VALUES ('4', 'question4', 'answer', 'answer1', 'answer11', 'answer11');
+INSERT INTO `quizcampenSpelDB` (`id`, `question`, `answer`, `answer1`, `answer11`, `correctAns`) VALUES ('5', 'question5', 'answer', 'answer1', 'answer11', 'answer1');
+INSERT INTO `quizcampenSpelDB` (`id`, `question`, `answer`, `answer1`, `answer11`, `correctAns`) VALUES ('6', 'question6', 'answer', 'answer1', 'answer11', 'answer');

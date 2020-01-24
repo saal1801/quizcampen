@@ -132,22 +132,22 @@ public class QuizcampenServiceResource {
 		 _log.info(quiz);
 		 
 		
-		/*
-		 * List <Quiz> quizs = new ArrayList<>(); _log.info("Quizs "+quizs);
-		 * 
-		 * quizs.add(new
-		 * Quiz(1,"Vilket språk talas i Brasilien?","Portugisiska","spanska",
-		 * "Italienska","Portugisiska")); quizs.add(new
-		 * Quiz(2,"Vilket är den största planet i solsystemet?","Jorden","Jupiter",
-		 * "Mars","Jupiter")); quizs.add(new
-		 * Quiz(3,"Vem uppfann Penicillin?","Thomas Edison","Louis Pasteur"
-		 * ,"Alexander Fleming","Alexander Fleming")); quizs.add(new
-		 * Quiz(4,"Anemofobi är rädslan för vad?","vind","mörker","mörker","vind"));
-		 * quizs.add(new
-		 * Quiz(5,"Vilket Apollo-uppdrag landade de första människorna på månen?"
-		 * ,"Apollo 7","Apollo 13","Apollo 11","Apollo 11")); quizs.add(new
-		 * Quiz(6,"Question","Answer","Answer1","Answer11","Answer1"));
-		 */
+		
+		  List <Quiz> quizs = new ArrayList<>(); _log.info("Quizs "+quizs);
+		  
+		  quizs.add(new
+		  Quiz(1,"Vilket språk talas i Brasilien?","Portugisiska","spanska",
+		  "Italienska","Portugisiska")); quizs.add(new
+		  Quiz(2,"Vilket är den största planet i solsystemet?","Jorden","Jupiter",
+		  "Mars","Jupiter")); quizs.add(new
+		  Quiz(3,"Vem uppfann Penicillin?","Thomas Edison","Louis Pasteur"
+		  ,"Alexander Fleming","Alexander Fleming")); quizs.add(new
+		  Quiz(4,"Anemofobi är rädslan för vad?","vind","mörker","mörker","vind"));
+		  quizs.add(new
+		  Quiz(5,"Vilket Apollo-uppdrag landade de första människorna på månen?"
+		  ,"Apollo 7","Apollo 13","Apollo 11","Apollo 11")); quizs.add(new
+		  Quiz(6,"Question","Answer","Answer1","Answer11","Answer1"));
+		 
 		 
 		
 //	    Quiz[] quiz = QuizcampenService.INSTANCE.getQuiz(question, answer);
@@ -160,7 +160,7 @@ public class QuizcampenServiceResource {
 	    return Response.ok(builder.toString()).build();*/
 	
 //	    return Response.status(200).entity(quizs).build();
-		return Response.status(200).entity(quiz).build();
+		return Response.status(200).entity(quizs).build();
 	}
 	
 

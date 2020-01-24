@@ -14,7 +14,7 @@ public class Quiz {
 	
 	
 	
-	/*
+	
 	public Quiz(int id, String question, String answer, String answer1, String answer11, String correctAns) {
 		super();
 		this.id = id;
@@ -24,7 +24,7 @@ public class Quiz {
 		this.answer11 = answer11;
 		this.correctAns = correctAns;
 	}
-	*/
+	
 
 	public Quiz(QuizcampenQuestionDAO quizcampenQuestionDAO) {
 		super();
