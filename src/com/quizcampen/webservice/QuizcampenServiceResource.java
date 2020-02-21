@@ -42,47 +42,12 @@ public class QuizcampenServiceResource {
 	    @Produces({ "text/html; charset=UTF-8"  })
 	    public Response getQuiz() {
 
-			/*GUI gUI = null;
-			try {
-				gUI = new GUI();
-			} catch (UnhandledException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}*/
 			String output = "<button>Hello World!</button>" +
 					"<p>RESTful Service is running ... <br>Ping @ " + new Date().toString() + "</p<br>";
 			return Response.status(200).entity(output).build();
 	    
 	}
 		
-		/*private void setAnswerQuestionSuccess(String question, Quiz successResponse) {
-
-			QuizDB.put(question, successResponse);
-
-		}
-
-		public static Response.ResponseBuilder getAllowOrginResponseBuilder() {
-
-			Response.ResponseBuilder builder = Response.ok().header("Access-Control-Allow-Origin", "*");
-
-			return builder;
-		}*/
-		
-		
-			/*@GET
-			@Path("/getQuiz")
-			@Produces({ "application/json; charset=UTF-8" })
-//			@RolesAllowed("ADMIN")
-			public Response getEvents(@QueryParam("question") String question, @QueryParam("answer") String answer) {
-
-			    Quiz[] quiz = QuizcampenService.INSTANCE.getQuiz(question, answer);
-
-			    String json = JsonConverter.convertToJson(quiz);
-			    StringBuilder builder = new StringBuilder();
-			    builder.append(json);
-
-			    return Response.ok(builder.toString()).build();
-			}*/
 			
 		 
 	
@@ -100,32 +65,11 @@ public class QuizcampenServiceResource {
 		return Response.ok(builder.toString()).build();
 	}
 	
-	
-	/*@GET
-	@Path("/getQuiz")
-	@Produces({ "application/json; charset=UTF-8" })
-//	@RolesAllowed("ADMIN")
-	public Response getQuizs(@QueryParam("id") String quizId) {
 
-		List <Quiz> quizs = QuizcampenService.INSTANCE.getQuizById();
-		
-//	    Quiz[] quiz = QuizcampenService.INSTANCE.getQuiz(question, answer);
-//	    Quiz quiz = new Quiz(quesId, question, answer);
-
-	    /*String json = JsonConverter.convertToJson(quiz);
-	    StringBuilder builder = new StringBuilder();
-	    builder.append(json);
-
-	    return Response.ok(builder.toString()).build();*/
-	
-//	    return Response.status(200).entity(quizs).build();
-//		return Response.status(200).entity(quizs.toString()).build();
-//	}
 	
 	@GET
 	@Path("/getQuiz")
 	@Produces({ "application/json; charset=UTF-8" })
-//	@RolesAllowed("ADMIN")
 	public Response getQuizs() {
 
 		List <Quiz> quiz = QuizcampenService.INSTANCE.getQuizById();
@@ -149,17 +93,6 @@ public class QuizcampenServiceResource {
 		  Quiz(6,"Question","Answer","Answer1","Answer11","Answer1"));
 		 
 		 
-		
-//	    Quiz[] quiz = QuizcampenService.INSTANCE.getQuiz(question, answer);
-//	    Quiz quiz = new Quiz(quesId, question, answer);
-
-	    /*String json = JsonConverter.convertToJson(quiz);
-	    StringBuilder builder = new StringBuilder();
-	    builder.append(json);
-
-	    return Response.ok(builder.toString()).build();*/
-	
-//	    return Response.status(200).entity(quizs).build();
 		return Response.status(200).entity(quizs).build();
 	}
 	

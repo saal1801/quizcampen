@@ -7,35 +7,35 @@
 <meta charset="UTF-8">
 
 <title>Quiz</title>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript"
-	src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script type="text/javascript"
-	src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript"
-	src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<!-- <script -->
+<!-- 	src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> -->
+<!-- <script type="text/javascript" -->
+<!-- 	src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script> -->
+<!-- <script type="text/javascript" -->
+<!-- 	src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script> -->
+<!-- <script type="text/javascript" -->
+<!-- 	src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> -->
 
-<link
-	href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css"
-	rel="stylesheet" />
+<!-- <link -->
+<!-- 	href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" -->
+<!-- 	rel="stylesheet" /> -->
 
 
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<!-- <script -->
+<!-- 	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> -->
+<!-- <script -->
+<!-- 	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> -->
 
-<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script> -->
+<!-- <link rel="stylesheet" -->
+<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<!-- <script -->
+<!-- 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+<!-- <script type="text/javascript" -->
+<!-- 	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script> -->
 	
-<link rel="stylesheet" type="text/css"
-	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker3.min.css">
+<!-- <link rel="stylesheet" type="text/css" -->
+<!-- 	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker3.min.css"> -->
 	
 <!-- 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
 	  
@@ -46,55 +46,57 @@
 </head>
 
 <style>
-div#test {
-            border: #000 1px solid;
-            padding: 10px 40px 40px 40px;
-        }
-  input[type='radio']:checked:before {
-    background:red;
-}
+ div#test { 
+             border: #000 1px solid; 
+             padding: 10px 40px 40px 40px; 
+         } 
+   input[type='radio']:checked + label { font-weight: bold; }
+   
+   /*:before { 
+     background:red; 
+ } */
 
-input[type='radio'] {
-    -webkit-appearance:none;
-    width:20px;
-    height:20px;
-    border:1px solid darkgray;
-    border-radius:50%;
-    outline:none;
-    box-shadow:0 0 5px 0px gray inset;
-}
-input[type='radio']:hover {
-    box-shadow:0 0 5px 0px orange inset;
-}
-input[type='radio']:before {
-    content:'';
-    display:block;
-    width:60%;
-    height:60%;
-    margin: 20% auto;    
-    border-radius:50%;    
-}
-.green-background{
+ input[type='radio'] { 
+/*      -webkit-appearance:none;  */
+     width:20px; 
+     height:20px; 
+     border:1px solid darkgray; 
+     border-radius:50%; 
+     outline:none; 
+     box-shadow:0 0 5px 0px gray inset; 
+ } 
+ input[type='radio']:hover { 
+     box-shadow:0 0 5px 0px orange inset; 
+ } 
+ input[type='radio']:before { 
+     content:''; 
+     display:block; 
+     width:60%; 
+     height:60%; 
+     margin: 20% auto;     
+     border-radius:50%;     
+ } 
+/* .green-background{
   background-color: green;
 }
 .red-background{
   background-color: red;
-}
+} */
 
 /* #q4 .choice .form-option-label {
   display : none;
-}*/
+}
 
-table {
-    border-collapse: collapse;    
-}
-td, th {
-    border: 1px solid #ccc;
-    padding: 10px;
-}
-th:empty {
-    border: 0;
-} 
+/* table { */
+/*     border-collapse: collapse;     */
+/* } */
+/* td, th { */
+/*     border: 1px solid #ccc; */
+/*     padding: 10px; */
+/* } */
+/* th:empty { */
+/*     border: 0; */
+/* }  */
 </style>
 
 
@@ -108,6 +110,7 @@ th:empty {
 	<div id="events"></div>
 	<button id="but1" type="button" onclick="displayans();">Check Answer</button>
 	<label id="Labmsg"></label>
+<!-- 	<div id="Labmsg1"></div> -->
 
 
 
@@ -115,7 +118,7 @@ th:empty {
 	
 		function init(){
 			getEventsForIP();
-			displayans();
+// 			displayans();
 			
 		}
 
@@ -233,6 +236,7 @@ th:empty {
 		 		
 		 		document.getElementById("Labmsg").innerHTML="";
 		 		var results=document.getElementsByTagName("INPUT");
+		 		
 		 		for(i=0;i<results.lenght;i++){
 		 			
 		 			if(results[i].type=="radio"){
