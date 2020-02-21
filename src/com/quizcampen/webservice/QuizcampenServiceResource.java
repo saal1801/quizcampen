@@ -26,7 +26,6 @@ import com.quizcampen.QuizcampenService;
 import com.quizcampen.entities.Quiz;
 import com.quizcampen.utils.HTMLReader;
 
-import client.GUI;
 import io.swagger.annotations.ApiOperation;
 
 
