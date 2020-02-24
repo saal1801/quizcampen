@@ -76,7 +76,7 @@ public class QuizcampenServiceResource {
 		 
 		
 		
-		  List <Quiz> quizs = new ArrayList<>(); _log.info("Quizs "+quizs);
+		 /* List <Quiz> quizs = new ArrayList<>(); _log.info("Quizs "+quizs); // Server test 
 		  
 		  quizs.add(new
 		  Quiz(1,"Vilket språk talas i Brasilien?","Portugisiska","spanska",
@@ -89,10 +89,10 @@ public class QuizcampenServiceResource {
 		  quizs.add(new
 		  Quiz(5,"Vilket Apollo-uppdrag landade de första människorna på månen?"
 		  ,"Apollo 7","Apollo 13","Apollo 11","Apollo 11")); quizs.add(new
-		  Quiz(6,"Question","Answer","Answer1","Answer11","Answer1"));
+		  Quiz(6,"Question","Answer","Answer1","Answer11","Answer1"));*/
 		 
 		 
-		return Response.status(200).entity(quizs).build();
+		return Response.status(200).entity(quiz).build();
 	}
 	
 
